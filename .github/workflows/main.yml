@@ -25,12 +25,8 @@ jobs:
       run: sudo mv package.zip ./artifacts/package.zip
     - name: Move source.zip to artifacts
       run: sudo mv source.zip ./artifacts/source.zip
-    - name: directory
-      run: dir
-    - name: artifacts dir
-      run: dir artifacts
     - name: Publish artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: Extension
+        name: gamer-president
         path: artifacts
