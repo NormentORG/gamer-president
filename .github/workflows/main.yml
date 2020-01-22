@@ -22,9 +22,9 @@ jobs:
     - name: Create directory to stage artifacts
       run: mkdir artifacts
     - name: Move package.zip to artifacts
-      run: mv package.zip /artifacts
+      run: sudo mv package.zip /artifacts
     - name: Move source.zip to artifacts
-      run: mv source.zip /artifacts
+      run: sudo mv source.zip /artifacts
     - name: Publish artifacts
       uses: actions/upload-artifact@v1
       with:
