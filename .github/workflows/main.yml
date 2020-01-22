@@ -10,13 +10,8 @@ jobs:
     steps:
     - name: Obtain latest version of the repository
       uses: actions/checkout@v1
-    - name: Create package.zip
-      uses: TheDoctor0/zip-release@v0.2.1
-      with:
-        filename: 'package.zip'
-        exclusions: '*.git* README.md'
     - name: Publish package.zip to artifacts
       uses: actions/upload-artifact@v1
       with:
         name: Extension ZIP
-        path: package.zip
+        path: ./
