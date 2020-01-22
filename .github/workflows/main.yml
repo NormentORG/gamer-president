@@ -26,9 +26,9 @@ jobs:
     - name: Move source.zip to artifacts
       run: sudo mv source.zip /artifacts
     - name: directory
-      uses: dir
+      run: dir
     - name: artifacts dir
-      uses: dir artifacts
+      run: dir artifacts
     - name: Publish artifacts
       uses: actions/upload-artifact@v1
       with:
