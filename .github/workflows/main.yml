@@ -1,4 +1,4 @@
-name: Package
+name: Create ZIP
 
 on: [push]
 
@@ -8,9 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - uses: bahmutov/npm-install@v1.1.0
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Obtain CRX packager
-      run: npm install crx
+    - name: Obtain latest version of the repository
+      uses: actions/checkout@v1
+    - name: Create package.zip
+    - uses: TheDoctor0/zip-release@v0.2.1
+      with:
+        filename: 'package.zip'
+        exclusions: '*.git* README.md'
+    - name: Publish package.zip to artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: ${{ matrix.os }}
+        path: package.zip
